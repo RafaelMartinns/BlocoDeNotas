@@ -8,22 +8,44 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&family=Special+Elite&family=Young+Serif&display=swap" rel="stylesheet">
+<script src="javascript.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
 </head>
 <body>
     <h1>Bloco de Notas</h1>    
     <div class="conteiner">         
-        <div class="novo_bloco">
-            <H2>Novo Bloco</H2>
+        
+        
+            <header>
+                <h2>Notas</h2>
+                <button class="btn_novo_bloco" onclick=abrirBloco()>
+                    Novo Bloco
+                    <img class="img_btn_adicionar" src="sinal-de-adicao.png" alt="Adicionar">
+                </button>
+            </header>
+            
+        
+        
+        <div class="novo_bloco" id="novo_bloco">
+            
+            
             <form action="">
-                <input class="titulo_notas" type="text" placeholder="Ti­tulo" autocomplete="none">
-                <textarea class="texto_notas" name="notas" placeholder="Texto" id="" cols="30" rows="5" ></textarea>
-                <button class="botao_add">Adicionar</button>
+                <h2 class="h2-novo-bloco">Novo Bloco</h2>
+                <span class="fechar" onclick=fecharBloco()><i class="fas fa-times"></i></span>
+                <input class="titulo_notas" type="text" placeholder="Ti­tulo" autocomplete="none" id="titulo_notas">
+                <textarea class="texto_notas" name="notas" placeholder="Texto" id="texto_notas" cols="30" rows="5" ></textarea>
+                <button class="botao_add" onclick=adicionarBloco() type="reset" >Adicionar</button>
             </form>
         </div>
-        <section class="notas">
-            <h2>Notas</h2>
-        </section>
+        <div class="lista_notas" id="lista_notas">
+            
+            
+
+        </div>
+        <span class="overlay" id="overlay" onclick=fecharBloco()> </span>
     </div>
+    
     
     
     

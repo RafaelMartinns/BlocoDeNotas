@@ -6,9 +6,11 @@
 
 .conteiner{
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
-    gap: 500px;
+    align-items: center;
+    gap: 10px;
+    
 
 
 }
@@ -63,8 +65,17 @@ form{
     display: flex;
     align-items: center;
     flex-direction: column;
+    position: absolute;
+    left: 50%; 
+    transform: translateX(-50%); 
+    top: 200px;
     width: 550px;
     height: auto;
+    box-shadow: 0 0 1500px 1000px rgba(0, 0, 0, 0.63);
+    border-radius: 20px;
+    z-index: 1000;
+    
+    
 }
 
 
@@ -111,7 +122,100 @@ form{
     
 }
 
-.botao_add:hover {
+.botao_add:hover, .btn_novo_bloco:hover {
     background-color: rgb(228, 135, 22); 
     
 }
+.btn_novo_bloco{
+    position: absolute;
+    left: 120px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 20px;
+    padding: 3px 10px 3px 10px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    background-color:  rgb(226, 154, 66);
+    border-radius: 24px;
+    cursor: pointer;
+    height: 34px;
+
+}
+
+.img_btn_adicionar{
+    width: 16px;
+    height: 16px;
+}
+
+header{
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    
+}
+
+.lista_notas{
+    width: 100%;
+    height: auto;
+    display: flex;   
+    padding-left: 75px;
+    gap: 50px;
+    box-sizing: border-box;
+
+
+}
+
+.nota{
+    position: relative;
+    width: 300px;
+    height: 400px;
+    background-color:  rgb(231, 169, 93);
+    border: 1px solid rgb(223, 132, 21);
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.308);
+}
+
+h3{
+    padding: 15px;
+    text-align: center;
+    background-color:  rgb(226, 154, 66);
+    border-bottom: 1px solid rgb(223, 132, 21);
+}
+p{
+    padding-left: 15px;
+}
+
+.overlay{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.267);
+    z-index: 1000;
+}
+
+.h2-novo-bloco{
+    margin: 0 0 15px 0;
+}
+
+.fechar{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-family: "Segoe UI Symbol", sans-serif;
+    font-weight: 800;
+    cursor: pointer;
+
+}
+
+.fechar:hover{
+    color: red;
+}
+
+.icone-excluir {
+    position: absolute; /* Posicionamento absoluto em relação ao container pai (.nota) */
+    top: 5px; /* Ajustar a distância do topo */
+    right: 5px; /* Ajustar a distância da direita */
+    width: 16px; /* Definir a largura do ícone */
+    height: 16px; /* Definir a altura do ícone */
+    cursor: pointer; /* Alterar o cursor para indicar que é clicável */
+}
+

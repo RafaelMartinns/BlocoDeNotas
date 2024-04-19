@@ -1,6 +1,7 @@
 *{
     margin: 0;
     padding: 0;
+    font-family: "Montserrat", sans-serif;
     
 }
 
@@ -113,7 +114,7 @@ form{
     width: 104%;
     height: 45px;
     border-radius: 20px;
-    background-color:  rgb(226, 154, 66);
+    background-color:  rgb(255 178 85);
     border: 1px solid rgba(0, 0, 0, 0.425);
     cursor: pointer;
     font-family: "Montserrat", sans-serif;
@@ -136,7 +137,7 @@ form{
     padding: 3px 10px 3px 10px;
     font-family: "Montserrat", sans-serif;
     font-weight: 600;
-    background-color:  rgb(226, 154, 66);
+    background-color:  rgb(255 178 85);
     border-radius: 24px;
     cursor: pointer;
     height: 34px;
@@ -158,7 +159,8 @@ header{
 .lista_notas{
     width: 100%;
     height: auto;
-    display: flex;   
+    display: flex;
+    flex-wrap: wrap;   
     padding-left: 75px;
     gap: 50px;
     box-sizing: border-box;
@@ -173,16 +175,28 @@ header{
     background-color:  rgb(231, 169, 93);
     border: 1px solid rgb(223, 132, 21);
     box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.308);
+    overflow-wrap: break-word;
+    overflow: hidden;
+    
+ 
 }
+
 
 h3{
     padding: 15px;
     text-align: center;
     background-color:  rgb(226, 154, 66);
     border-bottom: 1px solid rgb(223, 132, 21);
+    overflow-wrap: break-word;
 }
 p{
     padding-left: 15px;
+    padding-right: 15px;
+    font-weight: 500;
+    
+    
+    
+    
 }
 
 .overlay{
@@ -211,11 +225,17 @@ p{
 }
 
 .icone-excluir {
-    position: absolute; /* Posicionamento absoluto em relação ao container pai (.nota) */
-    top: 5px; /* Ajustar a distância do topo */
-    right: 5px; /* Ajustar a distância da direita */
-    width: 16px; /* Definir a largura do ícone */
-    height: 16px; /* Definir a altura do ícone */
-    cursor: pointer; /* Alterar o cursor para indicar que é clicável */
+    position: absolute;
+    top: 5px; 
+    right: 5px; 
+    width: 16px; 
+    height: 16px; 
+    cursor: pointer; 
+    
 }
+
+.icone-excluir:hover {
+    filter: grayscale(100%) sepia(100%) hue-rotate(180deg); 
+}
+
 

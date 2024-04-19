@@ -52,28 +52,34 @@ function atualizarListaNotas() {
         var textoNota = document.createElement("p");
         textoNota.textContent = nota.texto;
 
+        
+
         var iconeExcluir = document.createElement("img");
+
         iconeExcluir.src = "icone-excluir.png"; 
         iconeExcluir.alt = "icone-excluir";
         iconeExcluir.className= "icone-excluir";
         iconeExcluir.addEventListener("click", function(event) {
-            // Remove o bloco de nota quando o ícone de exclusão é clicado
-            var blocoNota = event.target.parentNode; // Acessa o elemento pai (bloco de nota)
-            blocoNota.remove(); // Remove o bloco de nota do DOM
+            
+            var blocoNota = event.target.parentNode;
+            blocoNota.remove(); 
 
             
-            // Atualiza o array de notasSalvas removendo a nota correspondente
+            
             notasSalvas = notasSalvas.filter(function(notaSalva) {
                 return notaSalva.titulo !== nota.titulo || notaSalva.texto !== nota.texto;
             });
 
-    // Atualiza o LocalStorage com o novo array de notasSalvas
+    
     localStorage.setItem('notas', JSON.stringify(notasSalvas));
         });
         
         notaDiv.appendChild(tituloNota);
         notaDiv.appendChild(textoNota);
         notaDiv.appendChild(iconeExcluir);
+        
+
+        
 
         listaNotasDiv.appendChild(notaDiv);
 
@@ -81,7 +87,7 @@ function atualizarListaNotas() {
     });
 }
 
-// Chamar a função para exibir as notas ao carregar a página
+
 window.onload = function() {
     atualizarListaNotas();
 };

@@ -80,6 +80,7 @@ function atualizarListaNotas() {
             document.getElementById("texto_notas_editar").value = paragrafo.textContent;
         
             document.getElementById("editar_bloco").style.display = "flex";
+            document.getElementById("overlay").style.display="flex"
             var form_editar=document.getElementById("form_editar");
             
             var botao_salvar = document.createElement("button");
@@ -156,6 +157,7 @@ function atualizarListaNotas() {
         titulo.textContent=document.getElementById("titulo_notas_editar").value
         paragrafo.textContent=document.getElementById("texto_notas_editar").value
         document.getElementById("editar_bloco").style.display="none";
+        document.getElementById("overlay").style.display="none" 
         form_editar.removeChild(botao_salvar)
         
     

@@ -2,7 +2,7 @@
 
 function fecharBloco(){
     document.getElementById("novo_bloco").style.display= "none" 
-    
+    document.getElementById("editar_bloco").style.display= "none" 
       
 
     
@@ -12,30 +12,28 @@ function fecharBloco(){
 function adicionarBloco(){
     var titulo = document.getElementById("titulo_notas").value;
     var texto = document.getElementById("texto_notas").value;
-
-    // Criar um objeto para representar a nota
+ 
     var novaNota = {
         titulo: titulo,
         texto: texto
     };
-
-    // Verificar se já existem notas no LocalStorage
+   
     var notasSalvas = JSON.parse(localStorage.getItem('notas')) || [];
 
-    // Adicionar a nova nota ao array de notas
+    
     notasSalvas.push(novaNota);
 
-    // Salvar o array atualizado de notas no LocalStorage
+    
     localStorage.setItem('notas', JSON.stringify(notasSalvas));
 
-    // Atualizar a exibição das notas na página
+    
     atualizarListaNotas();
 
-    // Fechar o bloco de notas
+    
     fecharBloco();
 }
 
-// Função para atualizar a exibição das notas na página
+
 function atualizarListaNotas() {
     var listaNotasDiv = document.getElementById("lista_notas");
     listaNotasDiv.innerHTML = "";
@@ -48,8 +46,10 @@ function atualizarListaNotas() {
 
         var tituloNota = document.createElement("h3");
         tituloNota.textContent = nota.titulo;
+        
 
         var textoNota = document.createElement("p");
+        
         textoNota.textContent = nota.texto;
 
         
@@ -59,6 +59,59 @@ function atualizarListaNotas() {
         iconeExcluir.src = "icone-excluir.png"; 
         iconeExcluir.alt = "icone-excluir";
         iconeExcluir.className= "icone-excluir";
+
+        notaDiv.innerHTML=" <img src='editar.png' alt='editar' class= 'editar'>"
+
+        var editar = notaDiv.querySelector('.editar')
+   
+        
+        editar.addEventListener("click", function() {
+          
+            
+
+            var bloco = this.parentNode;
+        
+            
+            var titulo = bloco.querySelector("h3");
+            var paragrafo = bloco.querySelector("p");
+        
+            document.getElementById("titulo_notas_editar").value = titulo.textContent;
+            document.getElementById("texto_notas_editar").value = paragrafo.textContent;
+        
+            document.getElementById("editar_bloco").style.display = "flex";
+            var form_editar=document.getElementById("form_editar");
+            
+            var botao_salvar = document.createElement("button");
+            botao_salvar.className = "botao_salvar";
+            botao_salvar.type = "reset"
+            botao_salvar.textContent = "Salvar"
+            botao_salvar.id="botao_salvar"
+
+            form_editar.appendChild(botao_salvar);
+
+            
+            
+            var salvarAnonimo = function(){
+                salvar(titulo,paragrafo)
+                console.log("foi")
+                
+            }
+
+            
+
+            botao_salvar.addEventListener("click",salvarAnonimo)
+            
+            
+
+            
+
+            
+
+        });
+
+        
+        
+
         iconeExcluir.addEventListener("click", function(event) {
             
             var blocoNota = event.target.parentNode;
@@ -71,12 +124,15 @@ function atualizarListaNotas() {
             });
 
     
-    localStorage.setItem('notas', JSON.stringify(notasSalvas));
+        localStorage.setItem('notas', JSON.stringify(notasSalvas));
         });
+
+
         
         notaDiv.appendChild(tituloNota);
         notaDiv.appendChild(textoNota);
         notaDiv.appendChild(iconeExcluir);
+        
         
 
         
@@ -86,6 +142,38 @@ function atualizarListaNotas() {
         
     });
 }
+    function salvar(titulo,paragrafo){
+    
+        
+         var notasSalvas = JSON.parse(localStorage.getItem('notas')) || [];
+
+     
+        var index = notasSalvas.findIndex(function(notaSalva) {
+            return notaSalva.titulo === titulo.textContent && notaSalva.texto === paragrafo.textContent;
+        });
+                          
+        titulo.textContent=document.getElementById("titulo_notas_editar").value
+        paragrafo.textContent=document.getElementById("texto_notas_editar").value
+        document.getElementById("editar_bloco").style.display="none";
+        form_editar.removeChild(botao_salvar)
+        
+    
+
+    
+
+    if (index !== -1) {
+        notasSalvas[index].titulo = titulo.textContent;
+        notasSalvas[index].texto = paragrafo.textContent;
+
+        
+        localStorage.setItem('notas', JSON.stringify(notasSalvas));
+    }
+        
+    }
+
+    
+
+
 
 
 window.onload = function() {
@@ -95,4 +183,6 @@ window.onload = function() {
 function abrirBloco(){
     document.getElementById("novo_bloco").style.display="flex"
 }
+
+
 

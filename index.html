@@ -14,7 +14,7 @@
 </head>
 <body>
     <h1>Bloco de Notas</h1>    
-    <div class="conteiner">         
+    <div id="conteiner" class="conteiner">         
         
         
             <header>
@@ -24,6 +24,8 @@
                     <img class="img_btn_adicionar" src="sinal-de-adicao.png" alt="Adicionar">
                 </button>
             </header>
+
+            
             
         
         
@@ -36,6 +38,18 @@
                 <input class="titulo_notas" type="text" placeholder="Ti­tulo" autocomplete="none" id="titulo_notas">
                 <textarea class="texto_notas" name="notas" placeholder="Texto" id="texto_notas" cols="30" rows="5" ></textarea>
                 <button class="botao_add" onclick=adicionarBloco() type="reset" >Adicionar</button>
+            </form>
+        </div>
+
+        <div class="editar_bloco" id="editar_bloco">
+            
+            
+            <form id="form_editar" action="">
+                <h2 class="h2-novo-bloco">Editar Bloco</h2>
+                <span class="fechar" onclick=fecharBloco()><i class="fas fa-times"></i></span>
+                <input class="titulo_notas_editar" type="text" placeholder="Ti­tulo" autocomplete="none" id="titulo_notas_editar">
+                <textarea class="texto_notas_editar" name="notas" placeholder="Texto" id="texto_notas_editar" cols="30" rows="5" ></textarea>
+                
             </form>
         </div>
         <div class="lista_notas" id="lista_notas">

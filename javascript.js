@@ -3,7 +3,7 @@
 function fecharBloco(){
     document.getElementById("novo_bloco").style.display= "none" 
     document.getElementById("editar_bloco").style.display= "none" 
-      
+    form_editar.removeChild(botao_salvar)  
 
     
 

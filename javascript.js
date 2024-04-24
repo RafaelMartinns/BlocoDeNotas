@@ -2,7 +2,8 @@
 
 function fecharBloco(){
     document.getElementById("novo_bloco").style.display= "none" 
-    document.getElementById("editar_bloco").style.display= "none" 
+    document.getElementById("editar_bloco").style.display= "none"
+    document.getElementById("overlay").style.display="none" 
     form_editar.removeChild(botao_salvar)  
 
     
@@ -182,6 +183,7 @@ window.onload = function() {
 
 function abrirBloco(){
     document.getElementById("novo_bloco").style.display="flex"
+    document.getElementById("overlay").style.display="flex"
 }
 
 

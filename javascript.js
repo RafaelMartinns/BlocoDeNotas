@@ -57,11 +57,11 @@ function atualizarListaNotas() {
 
         var iconeExcluir = document.createElement("img");
 
-        iconeExcluir.src = "icone-excluir.png"; 
+        iconeExcluir.src = "images/icone-excluir.png"; 
         iconeExcluir.alt = "icone-excluir";
         iconeExcluir.className= "icone-excluir";
 
-        notaDiv.innerHTML=" <img src='editar.png' alt='editar' class= 'editar'>"
+        notaDiv.innerHTML=" <img src='images/editar.png' alt='editar' class= 'editar'>"
 
         var editar = notaDiv.querySelector('.editar')
    
